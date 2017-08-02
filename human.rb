@@ -17,7 +17,7 @@ class Human
     @hp = 100
   end
   def attack mob, dmg
-    if Human == mob.class
+    if mob.class.ancestors.include? Human
       p "[#{@name}]: You strike #{mob.name} for #{dmg} damange!"
       mob.take_hit self, dmg
     end
@@ -25,6 +25,9 @@ class Human
   def take_hit mob, dmg
     p "[#{@name}]: #{mob.name} hit you for #{dmg} damage!"
     @hp -= dmg
+  end
+  def display_hp
+    p "[#{@name}] has #{@hp} hit points."
   end
 end
 
