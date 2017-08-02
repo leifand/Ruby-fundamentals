@@ -17,7 +17,7 @@ class Human
     @hp = 100
   end
   def attack mob
-    if true
+    if (Human == mob.class)
       p "[#{@name}]: You strike #{mob.name} for 20 damange!"
       mob.take_hit(self)
     end
