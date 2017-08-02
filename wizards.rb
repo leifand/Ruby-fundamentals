@@ -14,10 +14,8 @@ class Wizard < Human
     @hp += 10
   end
   def fireball mob, dmg
-    if Human == mob.class
-      p "[#{@name}]: You hit #{mob.name} with a FIREBALL for #{dmg} damange!"
-      mob.take_hit self, dmg
-    end
+    p "[#{@name}]: You hit #{mob.name} with a FIREBALL for #{dmg} damange!"
+    mob.take_hit self, dmg
   end
 end
 
@@ -73,7 +71,7 @@ Cody.run_away
 Cody.run_away
 Cody.display_hp
 Cody.steal Authman, 7
-Authman.fireball Cody, 70
+Authman.fireball Cody, 50
 Authman.heal
 Authman.display_hp
 Matt.death_blow Cody
