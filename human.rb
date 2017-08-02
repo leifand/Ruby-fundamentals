@@ -16,19 +16,20 @@ class Human
     @stl = 3
     @hp = 100
   end
-  def attack mob
-    if (Human == mob.class)
-      p "[#{@name}]: You strike #{mob.name} for 20 damange!"
-      mob.take_hit(self)
+  def attack mob, dmg
+    if Human == mob.class
+      p "[#{@name}]: You strike #{mob.name} for #{dmg} damange!"
+      mob.take_hit self, dmg
     end
   end
-  def take_hit(mob)
-    p "[#{@name}]: #{mob.name} hit you for 20 damage!"
-    @hp -= 20
+  def take_hit mob, dmg
+    p "[#{@name}]: #{mob.name} hit you for #{dmg} damage!"
+    @hp -= dmg
   end
 end
 
  Hercules = Human.new "Hercules"
  Gilgamesh = Human.new "Gilgamesh"
 
-Gilgamesh.attack Hercules
+Gilgamesh.attack Hercules, 20
+Hercules.attack Gilgamesh, 30
